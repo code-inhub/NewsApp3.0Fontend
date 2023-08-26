@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:8000';
+const url = 'https://newsapp3-0backend.onrender.com';
 
 export const CheckLogin = async ({email,password}) => {
     try{
