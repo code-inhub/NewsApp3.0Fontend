@@ -53,7 +53,7 @@ function Signup() {
     };
 
     try {
-      const url = 'http://localhost:8000';
+      const url = 'https://newsapp3-0backend.onrender.com';
       const response = await axios.post(`${url}/addUser`, user);
       if(response.data ==="User already exists") {
         alert('User already exists');
