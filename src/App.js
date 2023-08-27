@@ -30,17 +30,18 @@ const App = () => {
   //   backgroundRepeat: "no-repeat",*/} 
 //  }}
   >
+     {
+      <Route exact path="/signup">
+        <Signup />
+      </Route>
+     }
+
     { !isLogin && 
       <Route exact path="/">
         <Login setLogin={setIsLogin} setEmail={setEmail} setCategory={setCategory} />
       </Route>
     }
 
-     {
-      <Route exact path="/signup">
-        <Signup />
-      </Route>
-     }
     {
       
     isLogin
