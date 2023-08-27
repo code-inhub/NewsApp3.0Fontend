@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import { CheckLogin } from '../routes/route';
+import { Link } from 'react-router-dom';
 
 function Login({setLogin,setCategory,setEmail}) {
     // setLogin(true);
@@ -56,7 +57,9 @@ function Login({setLogin,setCategory,setEmail}) {
               <button className="btn btn-primary" onClick={handleLogin}>
                 Login
               </button>
-              <a href='/signup' style={{ marginLeft:"20px"}}>Are you a new user ? </a>
+                <Link to="/signup" style={{ marginLeft: '20px' }}>
+              Are you a new user?
+            </Link>
             </div>
           </div>
       
