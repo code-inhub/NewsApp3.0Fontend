@@ -33,6 +33,7 @@ function Login({setLogin,setCategory,setEmail}) {
         }
       }
       catch(err){
+          setLoading(false);
         console.log(err);
       }
         
