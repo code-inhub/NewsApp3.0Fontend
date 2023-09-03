@@ -1,15 +1,20 @@
 import React,{useState} from 'react'
 import { CheckLogin } from '../routes/route';
 import { Link } from 'react-router-dom';
+import Spinner from './Spinner';
 
 function Login({setLogin,setCategory,setEmail}) {
     // setLogin(true);
     const [email, setEmailIn] = useState('');
   const [password, setPassword]  = useState('');
+    const [loading,setLoading] = useState(false);
+
+    
     console.log("login");
 
     const handleLogin = async() => {
       try {
+           setLoading(true);
         const res= await CheckLogin({email,password});
  
         if(res.data === "success"){
@@ -17,9 +22,13 @@ function Login({setLogin,setCategory,setEmail}) {
           setEmail(email);
           console.log(res.category)
           setCategory(res.category)
+          setLoading(false);            
         }
 
         else{
+          setLoading(false);
+          setEmailIn("");
+          setPassword("");            
           alert("incorrect credentials");
         }
       }
@@ -33,6 +42,7 @@ function Login({setLogin,setCategory,setEmail}) {
         <>
         <div className="container" >
           <div className="row justify-content-center mt-5">
+           <div className="text-center">{loading && <Spinner />}</div>
             <div className="col-md-6 " style={{marginTop:"10%"}}>
               <h2>Login</h2>
               <div className="mb-3">
